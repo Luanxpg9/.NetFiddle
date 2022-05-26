@@ -1,5 +1,16 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+/* Code Snipet: Date Operations
+var LoginDate = DateTime.Now;
+var ExpiringDate = LoginDate.AddHours(24);
+var AfterExpiring = LoginDate.AddDays(2);
+var BeforeExpiring = LoginDate.AddHours(23);
+
+Console.WriteLine($"login expirado = {(ExpiringDate > AfterExpiring)} \n" +
+    $"login valido = {(ExpiringDate > BeforeExpiring)}");
+*/
+
+/* Code Snipet: Regex for words and '_' '=' '+' '-'
 using System.Text.RegularExpressions;
 
 string[] valid_strings = { "Testandoasadfcvx", "Teste A+Teste2é13 basd", "Téèstândoççç aaa" };
@@ -31,6 +42,7 @@ foreach (string s in invalid_strings)
         Console.WriteLine(match);
     }
 }
+*/
 
 /* Code Snipet: Regex for routes limited to Alphanumeric characters
  * 
