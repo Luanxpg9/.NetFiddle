@@ -1,5 +1,47 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+/* Code Snipet: Check file extension 
+ * 
+
+var fileNames = new string[] {
+    "testing_if_file_name is vAl1d.mp4",
+    "testing_if_file_name is vAl1d.mp5",
+    "testing_if_file_name is vAl1d.PDF",
+    "testing_if_file_name is vAl1d.mp3",
+    "testing_if_file_name is vAl1d.JPG",
+    "testing_if_file_name is vAl1d.PnG" };
+
+var validTypes = new string[] { "PDF", "MP4", "MP3", "PNG", "JPG" };
+
+var validFiles= new List<String>();
+var invalidFiles = new List<String>();
+
+foreach (var file in fileNames)
+{
+    var extensao = file.Split('.');
+    var tipoArquivo = extensao[extensao.Length - 1].ToUpper();
+    Console.WriteLine("A extenção do arquivo é: " + tipoArquivo);
+
+
+    
+
+    if (validTypes.Contains(tipoArquivo)) {
+        Console.WriteLine("Arquivo valido: " + file);
+        validFiles.Add(file);
+    }
+    else
+    {
+        Console.WriteLine("Arquivo invalido: " + file);
+        invalidFiles.Add(file);
+    }
+
+}
+
+Console.WriteLine("Valid files: " + validFiles.Count);
+Console.WriteLine("Invalid files: " + invalidFiles.Count);
+
+*/
+
 /* Code Snipet: Date Comparision
  * 
  
