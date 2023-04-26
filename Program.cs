@@ -1,8 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-/* Code Snipet: Check file extension 
- * 
+/* Code Snippet: Utilizing DistinctBy on IEnumerable
+using Fiddle.Snippets;
 
+_ = new DistinctByExample(50);
+*/
+
+/* Code Snipet: Check file extension 
 var fileNames = new string[] {
     "testing_if_file_name is vAl1d.mp4",
     "testing_if_file_name is vAl1d.mp5",
@@ -11,28 +15,35 @@ var fileNames = new string[] {
     "testing_if_file_name is vAl1d.JPG",
     "testing_if_file_name is vAl1d.PnG" };
 
-var validTypes = new string[] { "PDF", "MP4", "MP3", "PNG", "JPG" };
-
+var validTypes = new string[] { ".PDF", ".PNG", ".JPG", ".MP3" };
 var validFiles= new List<String>();
 var invalidFiles = new List<String>();
 
 foreach (var file in fileNames)
 {
-    var extensao = file.Split('.');
-    var tipoArquivo = extensao[extensao.Length - 1].ToUpper();
+    var tipoArquivo = Path.GetExtension(file).ToUpper();
     Console.WriteLine("A extenção do arquivo é: " + tipoArquivo);
+    Random rand = new Random();
+    // Tamanho do arquivo em Bytes
+    var tamanhoArquivo = (rand.Next(10, 2800000)/1024f)/1024f;
 
+    // Se o tipo for mp4 e o arquivo tiver menos de 20 mbytes o arquivo é valido
 
-    
+    // Se o tipo for pdf, png, jpg ou mp3 e o tamanho for 10 mbytes o arquivo é valido
 
-    if (validTypes.Contains(tipoArquivo)) {
+    // arquivo invalido
+
+    if ( (tipoArquivo.Equals(".MP4") && tamanhoArquivo < 20) || (validTypes.Contains(tipoArquivo) && tamanhoArquivo < 10)) {
         Console.WriteLine("Arquivo valido: " + file);
+        Console.WriteLine("Tamanho: " + tamanhoArquivo);
         validFiles.Add(file);
+        Console.WriteLine("---------------");
     }
     else
     {
         Console.WriteLine("Arquivo invalido: " + file);
         invalidFiles.Add(file);
+        Console.WriteLine("---------------");
     }
 
 }
