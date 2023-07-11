@@ -1,5 +1,40 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+/* Code Snippet: Removing acentuation
+ * 
+using System.Globalization;
+using System.Text;
+
+string RemoveAccentuation(string text)
+{
+    return new string(text
+        .Normalize(NormalizationForm.FormD)
+        .Where(ch => char.GetUnicodeCategory(ch) != UnicodeCategory.NonSpacingMark)
+        .ToArray());
+}
+
+string RemoveAccentuation2(string text)
+{
+    string withAccent = "ÄÅÁÂÀÃäáâàãÉÊËÈéêëèÍÎÏÌíîïìÖÓÔÒÕöóôòõÜÚÛüúûùÇç";
+    string withoutAccent = "AAAAAAaaaaaEEEEeeeeIIIIiiiiOOOOOoooooUUUuuuuCc";
+
+    for (int i = 0; i < withAccent.Length; i++)
+    {
+        text = text.Replace(withAccent[i].ToString(), withoutAccent[i].ToString());
+    }
+
+    return text;
+}
+
+var name = "José Caçamba";
+
+// Utilizando metódos do .Net
+Console.WriteLine(RemoveAccentuation(name));
+
+// Sem libs adicionais
+Console.WriteLine(RemoveAccentuation2(name));
+*/
+
 /* Code Snippet: Utilizing DistinctBy on IEnumerable
 using Fiddle.Snippets;
 
